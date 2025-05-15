@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
-            btnGrid = new Button();
             btnLogin = new Button();
             txtPass = new TextBox();
             txtUser = new TextBox();
@@ -38,16 +37,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             SuspendLayout();
-            // 
-            // btnGrid
-            // 
-            btnGrid.ImeMode = ImeMode.NoControl;
-            btnGrid.Location = new Point(330, 309);
-            btnGrid.Name = "btnGrid";
-            btnGrid.Size = new Size(120, 48);
-            btnGrid.TabIndex = 9;
-            btnGrid.Text = "GRID";
-            btnGrid.UseVisualStyleBackColor = true;
             // 
             // btnLogin
             // 
@@ -98,7 +87,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnGrid);
             Controls.Add(btnLogin);
             Controls.Add(txtPass);
             Controls.Add(txtUser);
@@ -113,8 +101,6 @@
         }
 
         #endregion
-
-        private Button btnGrid;
         private Button btnLogin;
         private TextBox txtPass;
         private TextBox txtUser;

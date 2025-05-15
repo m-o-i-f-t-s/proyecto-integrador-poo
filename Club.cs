@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class Club : Form
+    public partial class FrmClub : Form
     {
-        public Club()
+        public FrmClub()
         {
             InitializeComponent();
+        }
+
+        private void Club_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
