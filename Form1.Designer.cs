@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp1
 {
-    partial class FrmLogin
+    partial class frmLogin
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             btnLogin = new Button();
             txtPass = new TextBox();
             txtUser = new TextBox();
@@ -55,7 +55,7 @@
             txtPass.Name = "txtPass";
             txtPass.Size = new Size(155, 23);
             txtPass.TabIndex = 8;
-            txtPass.Text = "CONTRASEÑA";
+            txtPass.PlaceholderText = "CONTRASEÑA";
             // 
             // txtUser
             // 
@@ -63,7 +63,7 @@
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(155, 23);
             txtUser.TabIndex = 7;
-            txtUser.Text = "USUARIO";
+            txtUser.PlaceholderText = "USUARIO";
             txtUser.TextChanged += txtUser_TextChanged;
             // 
             // pictureBox1
@@ -82,7 +82,7 @@
             fileSystemWatcher1.EnableRaisingEvents = true;
             fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // FrmLogin
+            // frmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -91,7 +91,7 @@
             Controls.Add(txtPass);
             Controls.Add(txtUser);
             Controls.Add(pictureBox1);
-            Name = "FrmLogin";
+            Name = "frmLogin";
             Text = "Iniciar Sesión";
             Load += FrmLogin_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

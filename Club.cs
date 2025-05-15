@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class FrmClub : Form
+    public partial class frmClub : Form
     {
-        public FrmClub()
+        public frmClub()
         {
             InitializeComponent();
         }

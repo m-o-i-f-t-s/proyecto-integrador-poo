@@ -28,12 +28,176 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormRegistroNoSocio";
+            txtNombre = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            txtApellido = new TextBox();
+            label3 = new Label();
+            txtDni = new TextBox();
+            label4 = new Label();
+            txtTelefono = new TextBox();
+            label5 = new Label();
+            txtEmail = new TextBox();
+            label6 = new Label();
+            cmbAptoFisico = new ComboBox();
+            btnRegistrar = new Button();
+            SuspendLayout();
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(304, 81);
+            txtNombre.Name = "txtNombre";
+            txtNombre.PlaceholderText = "NOMBRE";
+            txtNombre.Size = new Size(154, 23);
+            txtNombre.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(215, 84);
+            label1.Name = "label1";
+            label1.Size = new Size(51, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Nombre";
+            label1.Click += label1_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(215, 136);
+            label2.Name = "label2";
+            label2.Size = new Size(51, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Apellido";
+            // 
+            // txtApellido
+            // 
+            txtApellido.Location = new Point(304, 133);
+            txtApellido.Name = "txtApellido";
+            txtApellido.PlaceholderText = "APELLIDO";
+            txtApellido.Size = new Size(154, 23);
+            txtApellido.TabIndex = 2;
+            txtApellido.TextChanged += textBox2_TextChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(215, 187);
+            label3.Name = "label3";
+            label3.Size = new Size(25, 15);
+            label3.TabIndex = 5;
+            label3.Text = "Dni";
+            label3.Click += label3_Click;
+            // 
+            // txtDni
+            // 
+            txtDni.Location = new Point(304, 184);
+            txtDni.Name = "txtDni";
+            txtDni.PlaceholderText = "DNI";
+            txtDni.Size = new Size(154, 23);
+            txtDni.TabIndex = 4;
+            txtDni.TextChanged += txtDni_TextChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(215, 245);
+            label4.Name = "label4";
+            label4.Size = new Size(53, 15);
+            label4.TabIndex = 7;
+            label4.Text = "Telefono";
+            // 
+            // txtTelefono
+            // 
+            txtTelefono.Location = new Point(304, 242);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.PlaceholderText = "TELEFONO";
+            txtTelefono.Size = new Size(154, 23);
+            txtTelefono.TabIndex = 6;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(215, 301);
+            label5.Name = "label5";
+            label5.Size = new Size(36, 15);
+            label5.TabIndex = 9;
+            label5.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(304, 298);
+            txtEmail.Name = "txtEmail";
+            txtEmail.PlaceholderText = "INGRESE EL EMAIL";
+            txtEmail.Size = new Size(154, 23);
+            txtEmail.TabIndex = 8;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(215, 366);
+            label6.Name = "label6";
+            label6.Size = new Size(63, 15);
+            label6.TabIndex = 10;
+            label6.Text = "AptoFisico";
+            // 
+            // cmbAptoFisico
+            // 
+            cmbAptoFisico.FormattingEnabled = true;
+            cmbAptoFisico.Items.AddRange(new object[] { "Si", "No" });
+            cmbAptoFisico.Location = new Point(304, 366);
+            cmbAptoFisico.Name = "cmbAptoFisico";
+            cmbAptoFisico.Size = new Size(121, 23);
+            cmbAptoFisico.TabIndex = 11;
+            // 
+            // btnRegistrar
+            // 
+            btnRegistrar.Location = new Point(558, 272);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(106, 44);
+            btnRegistrar.TabIndex = 0;
+            btnRegistrar.Text = "Registrar";
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
+            // 
+            // FormRegistroNoSocio
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnRegistrar);
+            Controls.Add(cmbAptoFisico);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(txtEmail);
+            Controls.Add(label4);
+            Controls.Add(txtTelefono);
+            Controls.Add(label3);
+            Controls.Add(txtDni);
+            Controls.Add(label2);
+            Controls.Add(txtApellido);
+            Controls.Add(label1);
+            Controls.Add(txtNombre);
+            Name = "FormRegistroNoSocio";
+            Text = "frmRegistroNoSocio";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private TextBox txtNombre;
+        private Label label1;
+        private Label label2;
+        private TextBox txtApellido;
+        private Label label3;
+        private TextBox txtDni;
+        private Label label4;
+        private TextBox txtTelefono;
+        private Label label5;
+        private TextBox txtEmail;
+        private Label label6;
+        private ComboBox cmbAptoFisico;
+        private Button btnRegistrar;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp1
 {
-    partial class FrmClub
+    partial class frmClub
     {
         /// <summary>
         /// Required designer variable.
@@ -75,7 +75,7 @@
             btnListarVencimientos.Text = "Listar Vencimientos";
             btnListarVencimientos.UseVisualStyleBackColor = true;
             // 
-            // FrmClub
+            // frmClub
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -84,7 +84,7 @@
             Controls.Add(btnCobrar);
             Controls.Add(btnRegistrarSocio);
             Controls.Add(btnRegistrarNoSocio);
-            Name = "FrmClub";
+            Name = "frmClub";
             Text = "Club";
             Load += Club_Load;
             ResumeLayout(false);
