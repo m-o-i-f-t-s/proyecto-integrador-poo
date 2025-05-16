@@ -17,40 +17,33 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
+
        
-
-        private void label1_Click(object sender, EventArgs e)
+        public bool Validacion(string texto)
+            // FUNCIO N PARA validar campos en blanco
         {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDni_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            if (texto == "")
+            {
+                return false;
+            }
+            return true;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-           
-        }
+            if (Validacion(txtNombre.Text) &&
+                Validacion(txtApellido.Text) &&
+                Validacion(txtDni.Text) &&
+                Validacion(txtTelefono.Text)&&
+                Validacion(txtEmail.Text) &&
+                (cboAptoFisico.SelectedIndex != -1) //comboBox apto fisico -1 = en blanco
+                )
+            {
+                // FLATA BUSCAR EN LA BASE SI NO EXISTE
+                MessageBox.Show("TODO LISO");
+                // FALTA SUBIR A LA BASE DE DATOS
+            }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
         }
     }
 }

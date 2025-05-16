@@ -39,7 +39,7 @@
             label5 = new Label();
             txtEmail = new TextBox();
             label6 = new Label();
-            cmbAptoFisico = new ComboBox();
+            cboAptoFisico = new ComboBox();
             btnRegistrar = new Button();
             SuspendLayout();
             // 
@@ -59,7 +59,6 @@
             label1.Size = new Size(51, 15);
             label1.TabIndex = 0;
             label1.Text = "Nombre";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -77,7 +76,6 @@
             txtApellido.PlaceholderText = "APELLIDO";
             txtApellido.Size = new Size(154, 23);
             txtApellido.TabIndex = 2;
-            txtApellido.TextChanged += textBox2_TextChanged;
             // 
             // label3
             // 
@@ -87,7 +85,6 @@
             label3.Size = new Size(25, 15);
             label3.TabIndex = 5;
             label3.Text = "Dni";
-            label3.Click += label3_Click;
             // 
             // txtDni
             // 
@@ -96,7 +93,6 @@
             txtDni.PlaceholderText = "DNI";
             txtDni.Size = new Size(154, 23);
             txtDni.TabIndex = 4;
-            txtDni.TextChanged += txtDni_TextChanged;
             // 
             // label4
             // 
@@ -141,18 +137,18 @@
             label6.TabIndex = 10;
             label6.Text = "AptoFisico";
             // 
-            // cmbAptoFisico
+            // cboAptoFisico
             // 
-            cmbAptoFisico.FormattingEnabled = true;
-            cmbAptoFisico.Items.AddRange(new object[] { "Si", "No" });
-            cmbAptoFisico.Location = new Point(304, 366);
-            cmbAptoFisico.Name = "cmbAptoFisico";
-            cmbAptoFisico.Size = new Size(121, 23);
-            cmbAptoFisico.TabIndex = 11;
+            cboAptoFisico.FormattingEnabled = true;
+            cboAptoFisico.Items.AddRange(new object[] { "Si", "No" });
+            cboAptoFisico.Location = new Point(304, 366);
+            cboAptoFisico.Name = "cboAptoFisico";
+            cboAptoFisico.Size = new Size(121, 23);
+            cboAptoFisico.TabIndex = 11;
             // 
             // btnRegistrar
             // 
-            btnRegistrar.Location = new Point(558, 272);
+            btnRegistrar.Location = new Point(533, 163);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(106, 44);
             btnRegistrar.TabIndex = 0;
@@ -166,7 +162,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnRegistrar);
-            Controls.Add(cmbAptoFisico);
+            Controls.Add(cboAptoFisico);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(txtEmail);
@@ -197,7 +193,7 @@
         private Label label5;
         private TextBox txtEmail;
         private Label label6;
-        private ComboBox cmbAptoFisico;
+        private ComboBox cboAptoFisico;
         private Button btnRegistrar;
     }
 }
