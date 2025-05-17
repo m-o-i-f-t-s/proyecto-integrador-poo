@@ -40,12 +40,31 @@ begin
     if busquedaNoSocio is not null then
 		select("El Cliente ya se encuentra Registrado");
 	else
-		select("Se ha registrado un nuevo socio");
+		# select("Se ha registrado un nuevo socio");
+        insert into noSocio(nombre, apellido, dni, telefono, email, aptoFisico)
+		values 
+        (nombreRegistro, apellidoRegistro, dniRegistro, telefonoRegistro, emailRegistro, aptoFisicoRegistro);
+        select("Cliente registrado con exito");
+	end if;
+end//
+
+call RegistroNoSocio ("Guille", "Novi", "123456", "1234", "gui", 1); #ERROR - YA REGISTRADO
+call RegistroNoSocio("Anto","Apellido","23456","234","an",0); # Nuevo ok
+call RegistroNoSocio("Diego","Apellido","345","345","di",0); # Nuevo ok
+
+
+delimiter //
+create procedure BuscarNoSocio(in dni varchar(29))
+begin
+declare busquedaNoSocio int;
+    set busquedaNoSocio = (select dni from noSocio where dni = dniRegistro);
+    if busquedaNoSocio is not null then
+		select("El Cliente ya se encuentra Registrado");
+	else
+		select("El Cliente no está registrado");
 	end if;
 end//
 
 
-
-    
-
+select * from noSocio;
 

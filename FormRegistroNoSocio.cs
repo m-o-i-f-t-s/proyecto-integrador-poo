@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp1.Entidades;
 
 namespace WinFormsApp1
 {
@@ -39,9 +40,19 @@ namespace WinFormsApp1
                 (cboAptoFisico.SelectedIndex != -1) //comboBox apto fisico -1 = en blanco
                 )
             {
-                // FLATA BUSCAR EN LA BASE SI NO EXISTE
-                MessageBox.Show("TODO LISO");
-                // FALTA SUBIR A LA BASE DE DATOS
+                
+                NoSocio noSocio = new NoSocio();
+                //noSocio.RegistroNoSocio("Vale", "apellido","456","456","val",1);
+                //noSocio.RegistroNoSocio("Diego","Apellido","345","345","di",0);
+
+                noSocio.RegistroNoSocio(
+                    txtNombre.Text,
+                    txtApellido.Text,
+                    txtDni.Text,
+                    txtTelefono.Text,
+                    txtEmail.Text,
+                    cboAptoFisico.Text.ToString() == "Si" ? 1 : 0
+                    );
             }
 
         }
