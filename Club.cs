@@ -28,5 +28,12 @@ namespace WinFormsApp1
             formRegistroNoSocio.Show();
             this.Hide();
         }
+
+        private void btnRegistrarSocio_Click(object sender, EventArgs e)
+        {
+            frmRegistroSocio FormRegistroSocio = new frmRegistroSocio();
+            FormRegistroSocio.Show();
+            this.Hide();
+        }
     }
 }
