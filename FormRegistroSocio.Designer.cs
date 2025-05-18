@@ -41,12 +41,15 @@
             txtApellido = new TextBox();
             label1 = new Label();
             txtNombre = new TextBox();
-            datePick = new DateTimePicker();
+            dateFechaPago = new DateTimePicker();
+            label7 = new Label();
+            cboEntregaCarnet = new ComboBox();
+            label8 = new Label();
             SuspendLayout();
             // 
             // btnRegistrar
             // 
-            btnRegistrar.Location = new Point(470, 189);
+            btnRegistrar.Location = new Point(459, 265);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(106, 44);
             btnRegistrar.TabIndex = 12;
@@ -157,20 +160,53 @@
             txtNombre.Size = new Size(154, 23);
             txtNombre.TabIndex = 14;
             // 
-            // datePick
+            // dateFechaPago
             // 
-            datePick.Location = new Point(441, 54);
-            datePick.Name = "datePick";
-            datePick.Size = new Size(242, 23);
-            datePick.TabIndex = 25;
-            datePick.ValueChanged += dateTimePicker1_ValueChanged;
+            dateFechaPago.Format = DateTimePickerFormat.Short;
+            dateFechaPago.Location = new Point(425, 89);
+            dateFechaPago.Name = "dateFechaPago";
+            dateFechaPago.Size = new Size(106, 23);
+            dateFechaPago.TabIndex = 25;
+            dateFechaPago.ValueChanged += dateTimePicker1_ValueChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(425, 71);
+            label7.Name = "label7";
+            label7.Size = new Size(124, 15);
+            label7.TabIndex = 26;
+            label7.Text = "Fecha De Vencimiento";
+            label7.Click += label7_Click;
+            // 
+            // cboEntregaCarnet
+            // 
+            cboEntregaCarnet.FormattingEnabled = true;
+            cboEntregaCarnet.Items.AddRange(new object[] { "Si", "No" });
+            cboEntregaCarnet.Location = new Point(516, 166);
+            cboEntregaCarnet.Name = "cboEntregaCarnet";
+            cboEntregaCarnet.Size = new Size(121, 23);
+            cboEntregaCarnet.TabIndex = 28;
+            cboEntregaCarnet.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(425, 169);
+            label8.Name = "label8";
+            label8.Size = new Size(85, 15);
+            label8.TabIndex = 27;
+            label8.Text = "Entrega Carnet";
             // 
             // frmRegistroSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(datePick);
+            Controls.Add(cboEntregaCarnet);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(dateFechaPago);
             Controls.Add(btnRegistrar);
             Controls.Add(cboAptoFisico);
             Controls.Add(label6);
@@ -186,6 +222,7 @@
             Controls.Add(txtNombre);
             Name = "frmRegistroSocio";
             Text = "Registro Socio";
+            Load += frmRegistroSocio_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -206,5 +243,9 @@
         private Label label1;
         private TextBox txtNombre;
         private DateTimePicker datePick;
+        private Label label7;
+        private DateTimePicker dateFechaPago;
+        private ComboBox cboEntregaCarnet;
+        private Label label8;
     }
 }

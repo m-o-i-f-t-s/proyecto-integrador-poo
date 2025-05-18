@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp1.Entidades;
 
 namespace WinFormsApp1
 {
@@ -16,6 +17,15 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
+        public bool Validacion(string texto)
+        // FUNCIO N PARA validar campos en blanco
+        {
+            if (texto == "")
+            {
+                return false;
+            }
+            return true;
+        }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -23,6 +33,51 @@ namespace WinFormsApp1
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            if (Validacion(txtNombre.Text) &&
+                Validacion(txtApellido.Text) &&
+                Validacion(txtDni.Text) &&
+                Validacion(txtTelefono.Text) &&
+                Validacion(txtEmail.Text) &&
+                (cboAptoFisico.SelectedIndex != -1) && 
+                (cboEntregaCarnet.SelectedIndex != -1)
+                //comboBox -1 = en blanco
+                )
+            {
+                DateTime fechaSeleccionada = dateFechaPago.Value;
+                string fechaModificada = fechaSeleccionada.ToString("yyyy-MM-dd");
+
+                Socio socio = new Socio();
+                socio.RegistroSocio(
+                    txtNombre.Text,
+                    txtApellido.Text,
+                    txtDni.Text,
+                    txtTelefono.Text,
+                    txtEmail.Text,
+                    cboAptoFisico.Text.ToString() == "Si" ? 1 : 0,
+                    fechaModificada,
+                    cboEntregaCarnet.Text.ToString() == "Si" ? 1 : 0
+                    );
+            }
+
+        }
+
+        private void frmRegistroSocio_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

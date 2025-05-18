@@ -32,18 +32,18 @@ namespace WinFormsApp1
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+
             if (Validacion(txtNombre.Text) &&
                 Validacion(txtApellido.Text) &&
                 Validacion(txtDni.Text) &&
-                Validacion(txtTelefono.Text)&&
+                Validacion(txtTelefono.Text) &&
                 Validacion(txtEmail.Text) &&
                 (cboAptoFisico.SelectedIndex != -1) //comboBox apto fisico -1 = en blanco
                 )
             {
-                
-                NoSocio noSocio = new NoSocio();
-                //noSocio.RegistroNoSocio("Vale", "apellido","456","456","val",1);
-                //noSocio.RegistroNoSocio("Diego","Apellido","345","345","di",0);
+
+
+                 NoSocio noSocio = new NoSocio();
 
                 noSocio.RegistroNoSocio(
                     txtNombre.Text,
