@@ -41,5 +41,11 @@ namespace WinFormsApp1
             frmVencimiento frmVencimiento = new frmVencimiento();
             frmVencimiento.ShowDialog();
         }
+
+        private void btnCobrar_Click(object sender, EventArgs e)
+        {
+            frmCobro frmCobro = new frmCobro();
+            frmCobro.ShowDialog();
+        }
     }
 }

@@ -65,6 +65,7 @@
             btnCobrar.TabIndex = 9;
             btnCobrar.Text = "Cobrar";
             btnCobrar.UseVisualStyleBackColor = true;
+            btnCobrar.Click += btnCobrar_Click;
             // 
             // btnListarVencimientos
             // 
