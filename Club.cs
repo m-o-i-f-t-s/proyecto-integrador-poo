@@ -25,15 +25,21 @@ namespace WinFormsApp1
         private void btnRegistrarNoSocio_Click(object sender, EventArgs e)
         {
             FormRegistroNoSocio formRegistroNoSocio = new FormRegistroNoSocio();
-            formRegistroNoSocio.Show();
-            this.Hide();
+            formRegistroNoSocio.ShowDialog();
+            //this.Hide();
         }
 
         private void btnRegistrarSocio_Click(object sender, EventArgs e)
         {
             frmRegistroSocio FormRegistroSocio = new frmRegistroSocio();
-            FormRegistroSocio.Show();
-            this.Hide();
+            FormRegistroSocio.ShowDialog();
+            //this.Hide();
+        }
+
+        private void btnListarVencimientos_Click(object sender, EventArgs e)
+        {
+            frmVencimiento frmVencimiento = new frmVencimiento();
+            frmVencimiento.ShowDialog();
         }
     }
 }
