@@ -131,5 +131,25 @@ begin
 end//
 
 
-select * from socio;
 
+/* ++++++++++++++++++++ 
+		Cobro
+++++++++++++++++++++++++ */
+
+delimiter //
+create procedure CambioVencimiento(
+	in dniRegistro varchar(20),
+    in fechaDeVencimientoRegistro date
+)
+begin 
+	declare busquedaSocio int;
+    set busquedaSocio = (select dni from socio where dni = dniRegistro);
+    if busquedaSocio is null then
+		select("El Socio no se encuentra Registrado");
+	else
+		update socio set fechaDeVencimiento = fechaDeVencimientoRegistro where dni = dniRegistro;
+        select("Nuevo Vencimiento Registrado");
+	end if;
+end//
+
+select * from socio;
