@@ -49,7 +49,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(dbgrdVencimiento);
             Name = "frmVencimiento";
-            Text = "frmVencimiento";
+            Text = "Lista De Vencimientos";
             Load += frmVencimiento_Load;
             ((System.ComponentModel.ISupportInitialize)dbgrdVencimiento).EndInit();
             ResumeLayout(false);
