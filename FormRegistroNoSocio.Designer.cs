@@ -50,6 +50,7 @@
             txtNombre.PlaceholderText = "NOMBRE";
             txtNombre.Size = new Size(154, 23);
             txtNombre.TabIndex = 1;
+            txtNombre.TextChanged += txtNombre_TextChanged;
             // 
             // label1
             // 

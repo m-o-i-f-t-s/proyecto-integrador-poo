@@ -18,33 +18,20 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
-
-       
-        public bool Validacion(string texto)
-            // FUNCIO N PARA validar campos en blanco
-        {
-            if (texto == "")
-            {
-                return false;
-            }
-            return true;
-        }
-
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
 
-            if (Validacion(txtNombre.Text) &&
-                Validacion(txtApellido.Text) &&
-                Validacion(txtDni.Text) &&
-                Validacion(txtTelefono.Text) &&
-                Validacion(txtEmail.Text) &&
+            if (Utilidades.Validacion(txtNombre.Text) &&
+                Utilidades.Validacion(txtApellido.Text) &&
+                Utilidades.Validacion(txtDni.Text) &&
+                Utilidades.Validacion(txtTelefono.Text) &&
+                Utilidades.Validacion(txtEmail.Text) &&
                 (cboAptoFisico.SelectedIndex != -1) //comboBox apto fisico -1 = en blanco
                 )
             {
 
 
-                 NoSocio noSocio = new NoSocio();
-
+                NoSocio noSocio = new NoSocio();
                 noSocio.RegistroNoSocio(
                     txtNombre.Text,
                     txtApellido.Text,
@@ -54,6 +41,15 @@ namespace WinFormsApp1
                     cboAptoFisico.Text.ToString() == "Si" ? 1 : 0
                     );
             }
+            else
+            {
+                MessageBox.Show("Debe Completar todos los campos para continuar.","Error");
+            }
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

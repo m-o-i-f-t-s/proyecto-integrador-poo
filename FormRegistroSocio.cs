@@ -17,16 +17,6 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        public bool Validacion(string texto)
-        // FUNCIO N PARA validar campos en blanco
-        {
-            if (texto == "")
-            {
-                return false;
-            }
-            return true;
-        }
-
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -34,12 +24,12 @@ namespace WinFormsApp1
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (Validacion(txtNombre.Text) &&
-                Validacion(txtApellido.Text) &&
-                Validacion(txtDni.Text) &&
-                Validacion(txtTelefono.Text) &&
-                Validacion(txtEmail.Text) &&
-                (cboAptoFisico.SelectedIndex != -1) && 
+            if (Utilidades.Validacion(txtNombre.Text) &&
+                Utilidades.Validacion(txtApellido.Text) &&
+                Utilidades.Validacion(txtDni.Text) &&
+                Utilidades.Validacion(txtTelefono.Text) &&
+                Utilidades.Validacion(txtEmail.Text) &&
+                (cboAptoFisico.SelectedIndex != -1) &&
                 (cboEntregaCarnet.SelectedIndex != -1)
                 //comboBox -1 = en blanco
                 )
@@ -58,6 +48,11 @@ namespace WinFormsApp1
                     fechaModificada,
                     cboEntregaCarnet.Text.ToString() == "Si" ? 1 : 0
                     );
+            }
+            else
+            {
+                MessageBox.Show("Debe Completar todos los campos para continuar.","Error");
+
             }
 
         }
@@ -78,6 +73,11 @@ namespace WinFormsApp1
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
         {
 
         }
