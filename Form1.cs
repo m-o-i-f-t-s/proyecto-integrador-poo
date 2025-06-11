@@ -2,9 +2,9 @@ using WinFormsApp1.Datos;
 
 namespace WinFormsApp1
 {
-    public partial class FrmLogin : Form
+    public partial class frmLogin : Form
     {
-        public FrmLogin()
+        public frmLogin()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace WinFormsApp1
             //Login login = new Login();
             //login.login("admin", "1234");
 
-            FrmClub frmClub = new FrmClub();
+            frmClub frmClub = new frmClub();
             frmClub.Show();
 
 

@@ -34,7 +34,7 @@ namespace WinFormsApp1.Datos
                     //Debug.WriteLine(usuario);
                     if (usuario == user)
                     {
-                        MessageBox.Show("entraste Fiera");
+                       
 
                     }
 
