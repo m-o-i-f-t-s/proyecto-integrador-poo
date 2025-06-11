@@ -74,7 +74,7 @@
             btnListarVencimientos.Name = "btnListarVencimientos";
             btnListarVencimientos.Size = new Size(120, 48);
             btnListarVencimientos.TabIndex = 10;
-            btnListarVencimientos.Text = "Listar Vencimientos";
+            btnListarVencimientos.Text = "Lista Vencimientos";
             btnListarVencimientos.UseVisualStyleBackColor = true;
             btnListarVencimientos.Click += btnListarVencimientos_Click;
             // 

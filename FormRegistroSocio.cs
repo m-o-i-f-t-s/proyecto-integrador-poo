@@ -51,7 +51,7 @@ namespace WinFormsApp1
             }
             else
             {
-                MessageBox.Show("Debe Completar todos los campos para continuar.","Error");
+                MessageBox.Show("Debe Completar todos los campos para continuar.", "Error");
 
             }
 
@@ -78,6 +78,11 @@ namespace WinFormsApp1
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
         {
 
         }

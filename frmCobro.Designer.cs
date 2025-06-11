@@ -69,6 +69,7 @@
             txtDni.PlaceholderText = "Dni Socio";
             txtDni.Size = new Size(154, 23);
             txtDni.TabIndex = 28;
+            txtDni.TextChanged += txtDni_TextChanged;
             // 
             // btnCobrar
             // 

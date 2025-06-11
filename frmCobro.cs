@@ -28,7 +28,7 @@ namespace WinFormsApp1
 
         private void btnCobrar_Click(object sender, EventArgs e)
         {
-            // FUNCION VALIDAR
+            //  VALIDACIONES
             if (txtDni.Text != "")
             {
                 DateTime fechaSeleccionada = dateFechaPago.Value;
@@ -61,7 +61,12 @@ namespace WinFormsApp1
                 }
 
             }
-            
+
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

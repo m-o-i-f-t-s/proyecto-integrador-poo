@@ -108,6 +108,7 @@
             txtTelefono.PlaceholderText = "TELEFONO";
             txtTelefono.Size = new Size(154, 23);
             txtTelefono.TabIndex = 19;
+            txtTelefono.TextChanged += txtTelefono_TextChanged;
             // 
             // label3
             // 
