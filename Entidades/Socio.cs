@@ -47,6 +47,11 @@ namespace WinFormsApp1.Entidades
                 {
                     string respuesta = read[0].ToString();
                     MessageBox.Show(respuesta);
+                    if(respuesta == "Socio registrado con exito")
+                    {
+
+                        ImprimirCarnet();
+                    }
                 }
 
             }
@@ -54,6 +59,14 @@ namespace WinFormsApp1.Entidades
             {
                 MessageBox.Show($"Error al conectar o ejecutar la consulta: {ex.Message}");
             }
+        }
+
+        public void ImprimirCarnet()
+        {
+            frmImpresionCarnet frmImpresionCarnet = new frmImpresionCarnet();
+            
+            //frmImpresionCarnet.ShowDialog();
+
         }
     }
 }

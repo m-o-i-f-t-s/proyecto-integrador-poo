@@ -24,6 +24,7 @@ namespace WinFormsApp1
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            // Validaciones 
             if (Utilidades.Validacion(txtNombre.Text) &&
                 Utilidades.Validacion(txtApellido.Text) &&
                 Utilidades.Validacion(txtDni.Text) &&
@@ -34,7 +35,9 @@ namespace WinFormsApp1
                 //comboBox -1 = en blanco
                 )
             {
+                // Toma la fecha
                 DateTime fechaSeleccionada = dateFechaPago.Value;
+                // Modifica Formato para DB
                 string fechaModificada = fechaSeleccionada.ToString("yyyy-MM-dd");
 
                 Socio socio = new Socio();
