@@ -49,8 +49,10 @@ namespace WinFormsApp1.Entidades
                     MessageBox.Show(respuesta);
                     if(respuesta == "Socio registrado con exito")
                     {
-
-                        ImprimirCarnet();
+                        if (carnet == 1 && aptoFisico == 1)
+                        {
+                            ImprimirCarnet(nombre, apellido, dni);
+                        }
                     }
                 }
 
@@ -61,11 +63,13 @@ namespace WinFormsApp1.Entidades
             }
         }
 
-        public void ImprimirCarnet()
+        public void ImprimirCarnet(string nombre, string apellido,string dni)
         {
             frmImpresionCarnet frmImpresionCarnet = new frmImpresionCarnet();
-            
-            //frmImpresionCarnet.ShowDialog();
+            frmImpresionCarnet.Nombre = nombre;
+            frmImpresionCarnet.Apellido = apellido;
+            frmImpresionCarnet.Dni = dni;
+            frmImpresionCarnet.ShowDialog();
 
         }
     }

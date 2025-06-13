@@ -47,9 +47,9 @@ namespace WinFormsApp1
                     txtDni.Text,
                     txtTelefono.Text,
                     txtEmail.Text,
-                    cboAptoFisico.Text.ToString() == "Si" ? 1 : 0,
+                    cboAptoFisico.Text.ToString() == "Si" ? 1 : 0,// si = 1
                     fechaModificada,
-                    cboEntregaCarnet.Text.ToString() == "Si" ? 1 : 0
+                    cboEntregaCarnet.Text.ToString() == "Si" ? 1 : 0 // no = 0
                     );
             }
             else
@@ -88,6 +88,16 @@ namespace WinFormsApp1
         private void txtTelefono_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmImpresionCarnet frmImpresionCarnet = new frmImpresionCarnet();
+            frmImpresionCarnet.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
         }
     }
 }

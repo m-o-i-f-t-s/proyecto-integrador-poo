@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp1
+﻿using System.Web;
+
+namespace WinFormsApp1
 {
     partial class frmImpresionCarnet
     {
@@ -32,6 +34,8 @@
             pictureBox1 = new PictureBox();
             lblNombre = new Label();
             lblApellido = new Label();
+            btnImprimir = new Button();
+            lblDni = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -49,7 +53,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(362, 122);
+            lblNombre.Location = new Point(352, 133);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(56, 15);
             lblNombre.TabIndex = 7;
@@ -58,24 +62,54 @@
             // 
             // lblApellido
             // 
+            lblApellido.AccessibleName = "lblApellido";
             lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(362, 66);
+            lblApellido.Location = new Point(352, 76);
             lblApellido.Name = "lblApellido";
             lblApellido.Size = new Size(60, 15);
             lblApellido.TabIndex = 8;
             lblApellido.Text = "APELLIDO";
             lblApellido.Click += label1_Click_1;
             // 
+            // btnImprimir
+            // 
+            btnImprimir.AccessibleDescription = "btnImprimir";
+            btnImprimir.AccessibleName = "btnImprimir";
+            btnImprimir.Location = new Point(215, 244);
+            btnImprimir.Name = "btnImprimir";
+            btnImprimir.Size = new Size(106, 44);
+            btnImprimir.TabIndex = 30;
+            btnImprimir.Text = "Imprimir";
+            btnImprimir.UseVisualStyleBackColor = true;
+            btnImprimir.Click += btnImprimir_Click;
+            // 
+            // lblDni
+            // 
+            lblDni.AccessibleDescription = "lblDni";
+            lblDni.AccessibleName = "lblDni";
+            lblDni.AutoSize = true;
+            lblDni.Location = new Point(352, 189);
+            lblDni.Name = "lblDni";
+            lblDni.Size = new Size(27, 15);
+            lblDni.TabIndex = 31;
+            lblDni.Text = "DNI";
+            lblDni.Click += label1_Click_2;
+            // 
             // frmImpresionCarnet
             // 
+            AccessibleDescription = "lblNombre";
+            AccessibleName = "lblNombre";
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(665, 317);
+            Controls.Add(lblDni);
+            Controls.Add(btnImprimir);
             Controls.Add(lblApellido);
             Controls.Add(lblNombre);
             Controls.Add(pictureBox1);
             Name = "frmImpresionCarnet";
-            Text = "frmImpresionCarnet";
+            Text = "Imprimir Carnet";
+            Load += frmImpresionCarnet_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -86,5 +120,22 @@
         private PictureBox pictureBox1;
         private Label lblNombre;
         private Label lblApellido;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private Button btnImprimir;
+        private Label lblDni;
+
+        public string Nombre
+        {
+            set { lblNombre.Text = value; }
+        }
+
+        public string Apellido
+        {
+            set { lblApellido.Text = value; }
+        }
+        public string Dni
+        {
+            set { lblDni.Text = value; }
+        }
     }
 }
