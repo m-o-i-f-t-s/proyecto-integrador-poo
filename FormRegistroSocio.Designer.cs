@@ -71,9 +71,9 @@
             label6.AutoSize = true;
             label6.Location = new Point(52, 313);
             label6.Name = "label6";
-            label6.Size = new Size(63, 15);
+            label6.Size = new Size(66, 15);
             label6.TabIndex = 23;
-            label6.Text = "AptoFisico";
+            label6.Text = "Apto Fisico";
             // 
             // label5
             // 
