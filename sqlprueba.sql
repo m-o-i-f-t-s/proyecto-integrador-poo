@@ -64,7 +64,7 @@ declare busquedaNoSocio int;
 		select(False);
 	end if;
 end//
-call BuscarNoSocio(123);
+#call BuscarNoSocio(123);
 
 
 delimiter //
@@ -73,12 +73,14 @@ begin
 declare busquedaNoSocio int;
     set busquedaNoSocio = (select dni from noSocio where dni = dniRegistro);
     if busquedaNoSocio is null then
-		select("El Dni no se encuentra registrado");
+		select(False);
 	else
 		delete from noSocio where dni = dniRegistro;
-        select("El No Socio fue eliminado");
+        select(True);
 	end if;
 end//
+
+
 
 
 

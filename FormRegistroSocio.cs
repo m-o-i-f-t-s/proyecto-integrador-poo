@@ -24,9 +24,9 @@ namespace WinFormsApp1
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            bool respuesta;
+            bool respuestaNoSocio;
             // Validaciones
-            
+
 
             // CAMPOS Vacios
             if (Utilidades.Validacion(txtNombre.Text) &&
@@ -51,16 +51,40 @@ namespace WinFormsApp1
                     DateTime fechaSeleccionada = dateFechaPago.Value;
                     // Modifica Formato para DB
                     string fechaModificada = fechaSeleccionada.ToString("yyyy-MM-dd");
-                    // Crea nuevo socio
-                    Socio socio = new Socio();
-
+                    
+                    NoSocio noSocio = new NoSocio();
+                 
                     // BUSCA EN NO SOCIO
-                    respuesta = socio.BuscarNoSocio(txtDni.Text);
-                    if (respuesta)
+                    respuestaNoSocio = noSocio.BuscarNoSocio(txtDni.Text);
+                    // si dni está registrado como No SOccio
+                    if (respuestaNoSocio)
                     {
-                        // MessageBoxButtons.YesNoCancel.
+                        var pregunta = MessageBox.Show("No socio registrado. ¿Desea registrarlo como Socio?", "Advertencia", MessageBoxButtons.YesNoCancel);
+                        //ELIMINA no socio
+                        if (pregunta == DialogResult.Yes)
+                        {
+
+                            respuestaNoSocio = false;
+                            respuestaNoSocio = noSocio.EliminarNoSocio(txtDni.Text);
+                            if (!respuestaNoSocio)
+                            {
+                                MessageBox.Show("Error al eliminar al No Socio", "Error");
+                                return;
+                            }
+                            
+                        }
+                        if (pregunta == DialogResult.No)
+                        {
+                            return;
+                        }
+                        if (pregunta == DialogResult.Cancel)
+                        {
+                            return;
+                        }
                     }
-                
+
+
+                    Socio socio = new Socio();
 
                     socio.RegistroSocio(
                         txtNombre.Text,
