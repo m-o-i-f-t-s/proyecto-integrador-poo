@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using logIn.Datos;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace WinFormsApp1.Entidades
 {
@@ -47,6 +48,13 @@ namespace WinFormsApp1.Entidades
                 {
                     string respuesta = read[0].ToString();
                     MessageBox.Show(respuesta);
+                    if(respuesta == "Socio registrado con exito")
+                    {
+                        if (carnet == 1 && aptoFisico == 1)
+                        {
+                            ImprimirCarnet(nombre, apellido, dni);
+                        }
+                    }
                 }
 
             }
@@ -55,5 +63,17 @@ namespace WinFormsApp1.Entidades
                 MessageBox.Show($"Error al conectar o ejecutar la consulta: {ex.Message}");
             }
         }
+
+        public void ImprimirCarnet(string nombre, string apellido,string dni)
+        {
+            frmImpresionCarnet frmImpresionCarnet = new frmImpresionCarnet();
+            frmImpresionCarnet.Nombre = nombre;
+            frmImpresionCarnet.Apellido = apellido;
+            frmImpresionCarnet.Dni = dni;
+            frmImpresionCarnet.ShowDialog();
+
+        }
+
+        
     }
 }
