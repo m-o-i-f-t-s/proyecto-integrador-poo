@@ -24,8 +24,10 @@ namespace WinFormsApp1
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            bool respuesta;
             // Validaciones
             
+
             // CAMPOS Vacios
             if (Utilidades.Validacion(txtNombre.Text) &&
                 Utilidades.Validacion(txtApellido.Text) &&
@@ -37,7 +39,7 @@ namespace WinFormsApp1
                 //comboBox -1 = en blanco
                 )
             {
-
+                // APTO Físico
                 if (cboAptoFisico.Text.ToString() != "Si")
                 {
                     MessageBox.Show("Debe tener apto físico para poder registrarse");
@@ -51,6 +53,15 @@ namespace WinFormsApp1
                     string fechaModificada = fechaSeleccionada.ToString("yyyy-MM-dd");
                     // Crea nuevo socio
                     Socio socio = new Socio();
+
+                    // BUSCA EN NO SOCIO
+                    respuesta = socio.BuscarNoSocio(txtDni.Text);
+                    if (respuesta)
+                    {
+                        // MessageBoxButtons.YesNoCancel.
+                    }
+                
+
                     socio.RegistroSocio(
                         txtNombre.Text,
                         txtApellido.Text,
