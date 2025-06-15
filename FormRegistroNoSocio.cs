@@ -20,7 +20,7 @@ namespace WinFormsApp1
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-
+            // Validaciones en blanco
             if (Utilidades.Validacion(txtNombre.Text) &&
                 Utilidades.Validacion(txtApellido.Text) &&
                 Utilidades.Validacion(txtDni.Text) &&
@@ -29,8 +29,14 @@ namespace WinFormsApp1
                 (cboAptoFisico.SelectedIndex != -1) //comboBox apto fisico -1 = en blanco
                 )
             {
+                // Validación apto físoco
+                if(cboAptoFisico.Text.ToString() != "Si")
+                {
+                    MessageBox.Show("Debe tener apto físico para poder registrarse");
+                    return;
+                }
 
-
+                // Registro de No Socio
                 NoSocio noSocio = new NoSocio();
                 noSocio.RegistroNoSocio(
                     txtNombre.Text,
