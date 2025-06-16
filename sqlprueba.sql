@@ -139,6 +139,20 @@ end//
 
 
 
+delimiter //
+create procedure buscarSocio(in dniRegistro varchar(29))
+begin
+declare busquedaSocio int;
+    set busquedaSocio = (select dni from socio where dni = dniRegistro);
+    if busquedaSocio is not null then
+		select(True);
+	else
+		select(False);
+	end if;
+end//
+
+
+
 /* ++++++++++++++++++++ 
 		Cobro
 ++++++++++++++++++++++++ */

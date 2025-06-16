@@ -74,6 +74,42 @@ namespace WinFormsApp1.Entidades
 
         }
 
-        
+        public Boolean BuscarSocio(string dni)
+        {
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                sqlCon.Open();
+                String query = "call buscarSocio (@dni)";
+                MySqlCommand cmd = new MySqlCommand(query, sqlCon);
+                cmd.Parameters.AddWithValue("@dni", dni);
+
+                MySqlDataReader read = cmd.ExecuteReader();
+                while (read.Read())
+                {
+                    string respuesta = read[0].ToString();
+                    if (respuesta == "1")
+                    {
+                        return true;
+                    }
+                    if (respuesta == "0")
+                    {
+                        return false;
+                    }
+                }
+                return false;
+
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show($"Error al conectar o ejecutar la consulta: {ex.Message}");
+                return false;
+            }
+
+
+        }
+
     }
 }

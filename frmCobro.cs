@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using logIn.Datos;
 using MySql.Data.MySqlClient;
+using WinFormsApp1.Entidades;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace WinFormsApp1
@@ -67,6 +68,52 @@ namespace WinFormsApp1
         private void txtDni_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Boolean busqueda = false;
+            //  VALIDACIONES
+            if (txtDni.Text != "")
+            {
+                // BUSCA EN NO SOCIO
+                NoSocio noSocio = new NoSocio();
+                busqueda = noSocio.BuscarNoSocio(txtDni.Text);
+                if (busqueda)
+                {
+                    // ES NO SOCIO
+                }
+                else
+                {
+                    // BSUCA EN SOCIO
+                    Socio socio = new Socio();
+                    busqueda = socio.BuscarSocio(txtDni.Text);
+                    if(busqueda)
+                    {
+                        // ES SOCIO
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encuentran Clientes con el DNI ingresado");
+                    }
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un DNI");
+            }
         }
     }
 }
