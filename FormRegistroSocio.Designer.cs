@@ -49,7 +49,7 @@
             // 
             // btnRegistrar
             // 
-            btnRegistrar.Location = new Point(459, 265);
+            btnRegistrar.Location = new Point(600, 361);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(106, 44);
             btnRegistrar.TabIndex = 12;
@@ -71,9 +71,9 @@
             label6.AutoSize = true;
             label6.Location = new Point(52, 313);
             label6.Name = "label6";
-            label6.Size = new Size(63, 15);
+            label6.Size = new Size(66, 15);
             label6.TabIndex = 23;
-            label6.Text = "AptoFisico";
+            label6.Text = "Apto Fisico";
             // 
             // label5
             // 
@@ -165,7 +165,7 @@
             // dateFechaPago
             // 
             dateFechaPago.Format = DateTimePickerFormat.Short;
-            dateFechaPago.Location = new Point(425, 89);
+            dateFechaPago.Location = new Point(459, 54);
             dateFechaPago.Name = "dateFechaPago";
             dateFechaPago.Size = new Size(106, 23);
             dateFechaPago.TabIndex = 25;
@@ -174,7 +174,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(425, 71);
+            label7.Location = new Point(459, 36);
             label7.Name = "label7";
             label7.Size = new Size(124, 15);
             label7.TabIndex = 26;
@@ -185,7 +185,7 @@
             // 
             cboEntregaCarnet.FormattingEnabled = true;
             cboEntregaCarnet.Items.AddRange(new object[] { "Si", "No" });
-            cboEntregaCarnet.Location = new Point(516, 166);
+            cboEntregaCarnet.Location = new Point(143, 382);
             cboEntregaCarnet.Name = "cboEntregaCarnet";
             cboEntregaCarnet.Size = new Size(121, 23);
             cboEntregaCarnet.TabIndex = 28;
@@ -194,7 +194,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(425, 169);
+            label8.Location = new Point(52, 385);
             label8.Name = "label8";
             label8.Size = new Size(85, 15);
             label8.TabIndex = 27;

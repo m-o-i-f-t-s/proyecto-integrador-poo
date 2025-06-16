@@ -51,7 +51,7 @@ begin
         select("Cliente registrado con exito");
 	end if;
 end//
-
+# call RegistroNoSocio ("Guille", "Novi", "123456", "1234", "gui", 1); #ERROR - YA REGISTRADO
 
 delimiter //
 create procedure BuscarNoSocio(in dniRegistro varchar(29))
@@ -59,11 +59,12 @@ begin
 declare busquedaNoSocio int;
     set busquedaNoSocio = (select dni from noSocio where dni = dniRegistro);
     if busquedaNoSocio is not null then
-		select("El Cliente ya se encuentra Registrado");
+		select(True);
 	else
-		select("El Cliente no está registrado");
+		select(False);
 	end if;
 end//
+#call BuscarNoSocio(123);
 
 
 delimiter //
@@ -72,13 +73,15 @@ begin
 declare busquedaNoSocio int;
     set busquedaNoSocio = (select dni from noSocio where dni = dniRegistro);
     if busquedaNoSocio is null then
-		select("El Dni no se encuentra registrado");
+		select(False);
 	else
 		delete from noSocio where dni = dniRegistro;
-        select("El No Socio fue eliminado");
+        select(True);
 	end if;
 end//
-# call RegistroNoSocio ("Guille", "Novi", "123456", "1234", "gui", 1); #ERROR - YA REGISTRADO
+
+
+
 
 
 
@@ -98,8 +101,12 @@ fechaDeVencimiento date,
 carnet boolean
 );
 
+
+
 # insert into socio(nombre, apellido, dni, telefono, email, aptoFisico,fechaDeVencimiento,carnet)
 # values ("Guille", "Novi", "123456", "1234", "gui", 1, "2025-08-01", 1);
+
+
 
 delimiter //
 create procedure RegistroSocio(
@@ -127,6 +134,20 @@ begin
 			(nombreRegistro, apellidoRegistro, dniRegistro, telefonoRegistro, emailRegistro, aptoFisicoRegistro, fechaDeVencimientoRegistro, carnetRegistro);
 			select("Socio registrado con exito");
 		end if;
+	end if;
+end//
+
+
+
+delimiter //
+create procedure buscarSocio(in dniRegistro varchar(29))
+begin
+declare busquedaSocio int;
+    set busquedaSocio = (select dni from socio where dni = dniRegistro);
+    if busquedaSocio is not null then
+		select(True);
+	else
+		select(False);
 	end if;
 end//
 

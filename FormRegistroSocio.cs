@@ -24,6 +24,11 @@ namespace WinFormsApp1
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            bool respuestaNoSocio;
+            // Validaciones
+
+
+            // CAMPOS Vacios
             if (Utilidades.Validacion(txtNombre.Text) &&
                 Utilidades.Validacion(txtApellido.Text) &&
                 Utilidades.Validacion(txtDni.Text) &&
@@ -34,24 +39,69 @@ namespace WinFormsApp1
                 //comboBox -1 = en blanco
                 )
             {
-                DateTime fechaSeleccionada = dateFechaPago.Value;
-                string fechaModificada = fechaSeleccionada.ToString("yyyy-MM-dd");
+                // APTO Físico
+                if (cboAptoFisico.Text.ToString() != "Si")
+                {
+                    MessageBox.Show("Debe tener apto físico para poder registrarse");
+                    return;
+                }
+                else
+                {
+                    // Toma la fecha
+                    DateTime fechaSeleccionada = dateFechaPago.Value;
+                    // Modifica Formato para DB
+                    string fechaModificada = fechaSeleccionada.ToString("yyyy-MM-dd");
+                    
+                    NoSocio noSocio = new NoSocio();
+                 
+                    // BUSCA EN NO SOCIO
+                    respuestaNoSocio = noSocio.BuscarNoSocio(txtDni.Text);
+                    // si dni está registrado como No SOccio
+                    if (respuestaNoSocio)
+                    {
+                        var pregunta = MessageBox.Show("No socio registrado. ¿Desea registrarlo como Socio?", "Advertencia", MessageBoxButtons.YesNoCancel);
+                        //ELIMINA no socio
+                        if (pregunta == DialogResult.Yes)
+                        {
 
-                Socio socio = new Socio();
-                socio.RegistroSocio(
-                    txtNombre.Text,
-                    txtApellido.Text,
-                    txtDni.Text,
-                    txtTelefono.Text,
-                    txtEmail.Text,
-                    cboAptoFisico.Text.ToString() == "Si" ? 1 : 0,
-                    fechaModificada,
-                    cboEntregaCarnet.Text.ToString() == "Si" ? 1 : 0
-                    );
+                            respuestaNoSocio = false;
+                            respuestaNoSocio = noSocio.EliminarNoSocio(txtDni.Text);
+                            if (!respuestaNoSocio)
+                            {
+                                MessageBox.Show("Error al eliminar al No Socio", "Error");
+                                return;
+                            }
+                            
+                        }
+                        if (pregunta == DialogResult.No)
+                        {
+                            return;
+                        }
+                        if (pregunta == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+                    }
+
+
+                    Socio socio = new Socio();
+
+                    socio.RegistroSocio(
+                        txtNombre.Text,
+                        txtApellido.Text,
+                        txtDni.Text,
+                        txtTelefono.Text,
+                        txtEmail.Text,
+                        cboAptoFisico.Text.ToString() == "Si" ? 1 : 0,// si = 1
+                        fechaModificada,
+                        cboEntregaCarnet.Text.ToString() == "Si" ? 1 : 0 // no = 0
+                        );
+                }
+                
             }
             else
             {
-                MessageBox.Show("Debe Completar todos los campos para continuar.", "Error");
+                MessageBox.Show("Debe Completar todos los campos para continuar.");
 
             }
 
@@ -85,6 +135,15 @@ namespace WinFormsApp1
         private void txtTelefono_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
         }
     }
 }
