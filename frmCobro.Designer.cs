@@ -28,32 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label7 = new Label();
+            lblVencimiento = new Label();
             dateFechaPago = new DateTimePicker();
             label1 = new Label();
             txtDni = new TextBox();
             btnCobrar = new Button();
-            label2 = new Label();
+            lblTotal = new Label();
             txtMonto = new TextBox();
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
             cboCuotas = new ComboBox();
-            label3 = new Label();
+            lblCuotas = new Label();
             btnBuscar = new Button();
+            lblNombre = new Label();
+            lblApellido = new Label();
+            txtApellido = new TextBox();
+            txtNombre = new TextBox();
+            chkTarjeta = new RadioButton();
+            chkEfectivo = new RadioButton();
+            lblMedio = new Label();
             SuspendLayout();
             // 
-            // label7
+            // lblVencimiento
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(491, 84);
-            label7.Name = "label7";
-            label7.Size = new Size(111, 15);
-            label7.TabIndex = 30;
-            label7.Text = "Nuevo Vencimiento";
-            label7.Visible = false;
+            lblVencimiento.AccessibleName = "lblVencimiento";
+            lblVencimiento.AutoSize = true;
+            lblVencimiento.Location = new Point(491, 81);
+            lblVencimiento.Name = "lblVencimiento";
+            lblVencimiento.Size = new Size(111, 15);
+            lblVencimiento.TabIndex = 30;
+            lblVencimiento.Text = "Nuevo Vencimiento";
+            lblVencimiento.Visible = false;
+            lblVencimiento.Click += lblVencimiento_Click;
             // 
             // dateFechaPago
             // 
+            dateFechaPago.AccessibleName = "dateFechaPago";
             dateFechaPago.Format = DateTimePickerFormat.Short;
             dateFechaPago.Location = new Point(608, 78);
             dateFechaPago.Name = "dateFechaPago";
@@ -64,7 +72,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(45, 81);
+            label1.Location = new Point(54, 87);
             label1.Name = "label1";
             label1.Size = new Size(25, 15);
             label1.TabIndex = 27;
@@ -73,7 +81,7 @@
             // 
             // txtDni
             // 
-            txtDni.Location = new Point(182, 84);
+            txtDni.Location = new Point(100, 84);
             txtDni.Name = "txtDni";
             txtDni.PlaceholderText = "Ingrese Dni";
             txtDni.Size = new Size(154, 23);
@@ -91,81 +99,61 @@
             btnCobrar.Visible = false;
             btnCobrar.Click += btnCobrar_Click;
             // 
-            // label2
+            // lblTotal
             // 
-            label2.AccessibleDescription = "";
-            label2.AccessibleName = "";
-            label2.AutoSize = true;
-            label2.Location = new Point(45, 147);
-            label2.Name = "label2";
-            label2.Size = new Size(109, 15);
-            label2.TabIndex = 32;
-            label2.Text = "Precio de Actividad";
-            label2.TextAlign = ContentAlignment.TopCenter;
-            label2.Visible = false;
+            lblTotal.AccessibleDescription = "";
+            lblTotal.AccessibleName = "lblTotal";
+            lblTotal.AutoSize = true;
+            lblTotal.Location = new Point(491, 141);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(42, 15);
+            lblTotal.TabIndex = 32;
+            lblTotal.Text = "Total $";
+            lblTotal.TextAlign = ContentAlignment.TopCenter;
+            lblTotal.Visible = false;
             // 
             // txtMonto
             // 
             txtMonto.AccessibleDescription = "";
             txtMonto.AccessibleName = "txtMonto";
-            txtMonto.Location = new Point(182, 139);
+            txtMonto.Location = new Point(537, 138);
             txtMonto.Name = "txtMonto";
             txtMonto.PlaceholderText = "Ingrese Monto a cobrar";
             txtMonto.Size = new Size(154, 23);
             txtMonto.TabIndex = 33;
             txtMonto.Visible = false;
             txtMonto.TextChanged += textBox1_TextChanged;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(182, 215);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(68, 19);
-            checkBox1.TabIndex = 34;
-            checkBox1.Text = "Efectivo";
-            checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.Visible = false;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
-            // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(45, 215);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(61, 19);
-            checkBox2.TabIndex = 35;
-            checkBox2.Text = "Tarjeta";
-            checkBox2.UseVisualStyleBackColor = true;
-            checkBox2.Visible = false;
+            txtMonto.KeyPress += txtMonto_KeyPress;
             // 
             // cboCuotas
             // 
-            cboCuotas.AutoCompleteCustomSource.AddRange(new string[] { "3", "6" });
+            cboCuotas.AccessibleName = "cboCuotas";
+            cboCuotas.AutoCompleteCustomSource.AddRange(new string[] { "1", "3", "6" });
             cboCuotas.FormattingEnabled = true;
-            cboCuotas.Location = new Point(182, 278);
+            cboCuotas.Items.AddRange(new object[] { "1", "3", "6" });
+            cboCuotas.Location = new Point(608, 269);
             cboCuotas.Name = "cboCuotas";
             cboCuotas.Size = new Size(128, 23);
             cboCuotas.TabIndex = 36;
             cboCuotas.Visible = false;
             // 
-            // label3
+            // lblCuotas
             // 
-            label3.AccessibleDescription = "";
-            label3.AccessibleName = "";
-            label3.AutoSize = true;
-            label3.Location = new Point(45, 286);
-            label3.Name = "label3";
-            label3.Size = new Size(111, 15);
-            label3.TabIndex = 37;
-            label3.Text = "Cantidad de Cuotas";
-            label3.TextAlign = ContentAlignment.TopCenter;
-            label3.Visible = false;
+            lblCuotas.AccessibleDescription = "";
+            lblCuotas.AccessibleName = "lblCuotas";
+            lblCuotas.AutoSize = true;
+            lblCuotas.Location = new Point(491, 272);
+            lblCuotas.Name = "lblCuotas";
+            lblCuotas.Size = new Size(111, 15);
+            lblCuotas.TabIndex = 37;
+            lblCuotas.Text = "Cantidad de Cuotas";
+            lblCuotas.TextAlign = ContentAlignment.TopCenter;
+            lblCuotas.Visible = false;
             // 
             // btnBuscar
             // 
             btnBuscar.AccessibleName = "btnBuscar";
-            btnBuscar.Location = new Point(342, 84);
+            btnBuscar.Location = new Point(260, 81);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(58, 26);
             btnBuscar.TabIndex = 38;
@@ -173,20 +161,110 @@
             btnBuscar.UseVisualStyleBackColor = true;
             btnBuscar.Click += btnBuscar_Click;
             // 
+            // lblNombre
+            // 
+            lblNombre.AccessibleName = "lblNombre";
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(54, 242);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(51, 15);
+            lblNombre.TabIndex = 39;
+            lblNombre.Text = "Nombre";
+            lblNombre.Visible = false;
+            // 
+            // lblApellido
+            // 
+            lblApellido.AccessibleName = "lblApellido";
+            lblApellido.AutoSize = true;
+            lblApellido.Location = new Point(54, 169);
+            lblApellido.Name = "lblApellido";
+            lblApellido.Size = new Size(51, 15);
+            lblApellido.TabIndex = 41;
+            lblApellido.Text = "Apellido";
+            lblApellido.Visible = false;
+            lblApellido.Click += label2_Click;
+            // 
+            // txtApellido
+            // 
+            txtApellido.AccessibleDescription = "";
+            txtApellido.AccessibleName = "txtApeliido";
+            txtApellido.Enabled = false;
+            txtApellido.Location = new Point(131, 166);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(141, 23);
+            txtApellido.TabIndex = 42;
+            txtApellido.Visible = false;
+            // 
+            // txtNombre
+            // 
+            txtNombre.AccessibleDescription = "";
+            txtNombre.AccessibleName = "txtNombre";
+            txtNombre.Enabled = false;
+            txtNombre.Location = new Point(131, 238);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(141, 23);
+            txtNombre.TabIndex = 43;
+            txtNombre.Visible = false;
+            // 
+            // chkTarjeta
+            // 
+            chkTarjeta.AccessibleName = "chkTarjeta";
+            chkTarjeta.AutoSize = true;
+            chkTarjeta.Location = new Point(603, 209);
+            chkTarjeta.Name = "chkTarjeta";
+            chkTarjeta.Size = new Size(60, 19);
+            chkTarjeta.TabIndex = 44;
+            chkTarjeta.TabStop = true;
+            chkTarjeta.Text = "Tarjeta";
+            chkTarjeta.UseVisualStyleBackColor = true;
+            chkTarjeta.Visible = false;
+            chkTarjeta.CheckedChanged += radioButton1_CheckedChanged;
+            // 
+            // chkEfectivo
+            // 
+            chkEfectivo.AccessibleName = "chkEfectivo";
+            chkEfectivo.AutoSize = true;
+            chkEfectivo.Location = new Point(669, 209);
+            chkEfectivo.Name = "chkEfectivo";
+            chkEfectivo.Size = new Size(67, 19);
+            chkEfectivo.TabIndex = 45;
+            chkEfectivo.TabStop = true;
+            chkEfectivo.Text = "Efectivo";
+            chkEfectivo.UseVisualStyleBackColor = true;
+            chkEfectivo.Visible = false;
+            // 
+            // lblMedio
+            // 
+            lblMedio.AccessibleDescription = "";
+            lblMedio.AccessibleName = "lblMedio";
+            lblMedio.AutoSize = true;
+            lblMedio.Location = new Point(491, 211);
+            lblMedio.Name = "lblMedio";
+            lblMedio.Size = new Size(87, 15);
+            lblMedio.TabIndex = 46;
+            lblMedio.Text = "Medio de Pago";
+            lblMedio.TextAlign = ContentAlignment.TopCenter;
+            lblMedio.Visible = false;
+            // 
             // frmCobro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblMedio);
+            Controls.Add(chkEfectivo);
+            Controls.Add(chkTarjeta);
+            Controls.Add(txtNombre);
+            Controls.Add(txtApellido);
+            Controls.Add(lblApellido);
+            Controls.Add(lblNombre);
             Controls.Add(btnBuscar);
-            Controls.Add(label3);
+            Controls.Add(lblCuotas);
             Controls.Add(cboCuotas);
-            Controls.Add(checkBox2);
-            Controls.Add(checkBox1);
-            Controls.Add(label2);
+            Controls.Add(lblTotal);
             Controls.Add(txtMonto);
             Controls.Add(btnCobrar);
-            Controls.Add(label7);
+            Controls.Add(lblVencimiento);
             Controls.Add(dateFechaPago);
             Controls.Add(label1);
             Controls.Add(txtDni);
@@ -198,17 +276,23 @@
 
         #endregion
 
-        private Label label7;
+        private Label lblVencimiento;
         private DateTimePicker dateFechaPago;
         private Label label1;
         private TextBox txtDni;
         private Button btnCobrar;
-        private Label label2;
+        private Label lblTotal;
         private TextBox txtMonto;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
         private ComboBox cboCuotas;
-        private Label label3;
+        private Label lblCuotas;
         private Button btnBuscar;
+        private Label lblNombre;
+        private Label lblApellido;
+        private TextBox txtApellido;
+        private TextBox txtNombre;
+        private RadioButton chkTarjeta;
+        private RadioButton chkEfectivo;
+        private Label label2;
+        private Label lblMedio;
     }
 }

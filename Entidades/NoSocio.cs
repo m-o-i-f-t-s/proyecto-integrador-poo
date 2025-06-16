@@ -20,19 +20,6 @@ namespace WinFormsApp1.Entidades
         private string Dni{ get; set; }
         private string Email { get; set; }
         private bool AptoFisico { get; set; }
-
-
-        //public NoSocio (string nombre, string apellido, 
-        //    string telefono, string dni, string email, bool aptoFisico)
-        //{
-        //    this.Nombre = nombre;
-        //    this.Apellido = apellido;
-        //    this.Telefono = telefono;
-        //    this.Dni = dni;
-        //    this.Email = email;
-        //    this.AptoFisico = aptoFisico;
-        //}
-
         
         public void RegistroNoSocio(
             string nombre, 
@@ -148,6 +135,40 @@ namespace WinFormsApp1.Entidades
             }
 
 
+        }
+
+
+        public bool NombreApellidoNoSocio(string dni, out string nombre, out string apellido)
+        {
+            nombre = "";
+            apellido = "";
+
+            try
+            {
+                using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())
+                {
+                    sqlCon.Open();
+                    string query = "SELECT nombre, apellido FROM noSocio WHERE dni = @dni";
+                    MySqlCommand cmd = new MySqlCommand(query, sqlCon);
+                    cmd.Parameters.AddWithValue("@dni", dni);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            nombre = reader["nombre"].ToString();
+                            apellido = reader["apellido"].ToString();
+                            return true;
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error al conectar o ejecutar la consulta: {ex.Message}");
+            }
+
+            return false;
         }
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -30,8 +31,33 @@ namespace WinFormsApp1
         private void btnCobrar_Click(object sender, EventArgs e)
         {
             //  VALIDACIONES
-            if (txtDni.Text != "")
+
+            // NO SOCIO
+            if (!dateFechaPago.Visible &&
+                txtDni.Text != "" &&
+                txtMonto.Text != "" &&
+                (chkEfectivo.Checked || chkTarjeta.Checked))
             {
+                // Imprimir No Socio
+                btnBuscar.Visible = false;
+                btnCobrar.Visible = false;
+                PrintDocument pd = new PrintDocument();
+                pd.PrintPage += new PrintPageEventHandler(ImprimirForm1);
+                pd.Print();
+
+                btnBuscar.Visible = true;
+                btnCobrar.Visible = true;
+
+            }
+            // Socio 
+            else if (dateFechaPago.Visible &&
+                txtDni.Text != "" &&
+                txtMonto.Text != "" &&
+                (chkEfectivo.Checked || chkTarjeta.Checked) &&
+                (chkTarjeta.Checked && cboCuotas.SelectedIndex != -1)
+                )
+            {
+                // Cambiar Fecha de vencimiento
                 DateTime fechaSeleccionada = dateFechaPago.Value;
                 string fechaModificada = fechaSeleccionada.ToString("yyyy-MM-dd");
 
@@ -61,7 +87,31 @@ namespace WinFormsApp1
                     MessageBox.Show($"Error al conectar o ejecutar la consulta: {ex.Message}");
                 }
 
+                // IMPRIMIR 
+                btnBuscar.Visible = false;
+                btnCobrar.Visible = false;
+                if (!chkTarjeta.Checked)
+                {
+                    lblCuotas.Visible = false;
+                    cboCuotas.Visible = false;
+                }
+                PrintDocument pd = new PrintDocument();
+                pd.PrintPage += new PrintPageEventHandler(ImprimirForm1);
+                pd.Print();
+
+                btnBuscar.Visible = true;
+                btnCobrar.Visible = true;
+                if (!chkTarjeta.Checked)
+                {
+                    lblCuotas.Visible = true;
+                    cboCuotas.Visible = true;
+                }
             }
+            else
+            {
+                MessageBox.Show("Debe Completar todos los campos");
+            }
+
 
         }
 
@@ -74,6 +124,10 @@ namespace WinFormsApp1
         {
 
         }
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -83,24 +137,55 @@ namespace WinFormsApp1
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Boolean busqueda = false;
+            string nombre, apellido;
             //  VALIDACIONES
             if (txtDni.Text != "")
             {
                 // BUSCA EN NO SOCIO
                 NoSocio noSocio = new NoSocio();
-                busqueda = noSocio.BuscarNoSocio(txtDni.Text);
+                busqueda = noSocio.NombreApellidoNoSocio(txtDni.Text, out nombre, out apellido);
                 if (busqueda)
                 {
                     // ES NO SOCIO
+                    lblTotal.Visible = true;
+                    txtMonto.Visible = true;
+                    lblMedio.Visible = true;
+                    chkTarjeta.Visible = true;
+                    chkEfectivo.Visible = true;
+                    btnCobrar.Visible = true;
+                    txtApellido.Visible = true;
+                    txtNombre.Visible = true;
+                    lblApellido.Visible = true;
+                    lblNombre.Visible = true;
+                    txtNombre.Text = nombre;
+                    txtApellido.Text = apellido;
+
                 }
                 else
                 {
                     // BSUCA EN SOCIO
+                    busqueda = false;
                     Socio socio = new Socio();
-                    busqueda = socio.BuscarSocio(txtDni.Text);
-                    if(busqueda)
+                    busqueda = socio.NombreApellidoSocio(txtDni.Text, out nombre, out apellido);
+                    if (busqueda)
                     {
                         // ES SOCIO
+                        lblTotal.Visible = true;
+                        txtMonto.Visible = true;
+                        lblMedio.Visible = true;
+                        chkTarjeta.Visible = true;
+                        chkEfectivo.Visible = true;
+                        btnCobrar.Visible = true;
+                        txtApellido.Visible = true;
+                        txtNombre.Visible = true;
+                        lblApellido.Visible = true;
+                        lblNombre.Visible = true;
+                        txtNombre.Text = nombre;
+                        txtApellido.Text = apellido;
+                        lblCuotas.Visible = true;
+                        cboCuotas.Visible = true;
+                        lblVencimiento.Visible = true;
+                        dateFechaPago.Visible = true;
                     }
                     else
                     {
@@ -114,6 +199,53 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Debe ingresar un DNI");
             }
+        }
+
+        private void lblVencimiento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // permitir solo nums
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // cancela la tecla
+            }
+        }
+
+        private void chkTarjeta_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ImprimirForm1(object o, PrintPageEventArgs e)
+        {
+            int x = SystemInformation.WorkingArea.X;
+            int y = SystemInformation.WorkingArea.Y;
+            int ancho = this.Width;
+            int alto = this.Height;
+            Rectangle bounds = new Rectangle(x, y, ancho, alto);
+            Bitmap img = new Bitmap(ancho, alto);
+            this.DrawToBitmap(img, bounds);
+            Point p = new Point(100, 100);
+            e.Graphics.DrawImage(img, p);
+        }
+
+        private void cboCuotas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
