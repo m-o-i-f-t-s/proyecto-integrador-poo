@@ -35,10 +35,10 @@
             // dbgrdVencimiento
             // 
             dbgrdVencimiento.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dbgrdVencimiento.Location = new Point(123, 174);
+            dbgrdVencimiento.Location = new Point(45, 48);
             dbgrdVencimiento.Name = "dbgrdVencimiento";
             dbgrdVencimiento.RowTemplate.Height = 25;
-            dbgrdVencimiento.Size = new Size(555, 103);
+            dbgrdVencimiento.Size = new Size(696, 351);
             dbgrdVencimiento.TabIndex = 1;
             dbgrdVencimiento.CellContentClick += dbgrdVencimiento_CellContentClick;
             // 

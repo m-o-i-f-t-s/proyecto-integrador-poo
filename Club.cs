@@ -47,5 +47,11 @@ namespace WinFormsApp1
             frmCobro frmCobro = new frmCobro();
             frmCobro.ShowDialog();
         }
+
+        private void btnEmitirCarnet_Click(object sender, EventArgs e)
+        {
+            frmCarnetNoEmitidos frmCarnetNoEmitidos = new frmCarnetNoEmitidos();
+            frmCarnetNoEmitidos.ShowDialog();
+        }
     }
 }

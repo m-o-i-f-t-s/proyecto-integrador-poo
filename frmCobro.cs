@@ -53,10 +53,14 @@ namespace WinFormsApp1
             else if (dateFechaPago.Visible &&
                 txtDni.Text != "" &&
                 txtMonto.Text != "" &&
-                (chkEfectivo.Checked || chkTarjeta.Checked) &&
-                (chkTarjeta.Checked && cboCuotas.SelectedIndex != -1)
+                (chkEfectivo.Checked || chkTarjeta.Checked)
                 )
             {
+                if(chkTarjeta.Checked && cboCuotas.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe Completar todos los campos");
+                    return;
+                }
                 // Cambiar Fecha de vencimiento
                 DateTime fechaSeleccionada = dateFechaPago.Value;
                 string fechaModificada = fechaSeleccionada.ToString("yyyy-MM-dd");
@@ -149,9 +153,9 @@ namespace WinFormsApp1
                     // ES NO SOCIO
                     lblTotal.Visible = true;
                     txtMonto.Visible = true;
-                    lblMedio.Visible = true;
-                    chkTarjeta.Visible = true;
-                    chkEfectivo.Visible = true;
+                    //lblMedio.Visible = true;
+                    //chkTarjeta.Visible = true;
+                    //chkEfectivo.Visible = true;
                     btnCobrar.Visible = true;
                     txtApellido.Visible = true;
                     txtNombre.Visible = true;
@@ -159,6 +163,8 @@ namespace WinFormsApp1
                     lblNombre.Visible = true;
                     txtNombre.Text = nombre;
                     txtApellido.Text = apellido;
+                    lblTituloCobro.Text = "Cobro de Actividad";
+                    lblTituloCobro.Visible = true;
 
                 }
                 else
@@ -186,6 +192,8 @@ namespace WinFormsApp1
                         cboCuotas.Visible = true;
                         lblVencimiento.Visible = true;
                         dateFechaPago.Visible = true;
+                        lblTituloCobro.Text = "Cobro de Cuota";
+                        lblTituloCobro.Visible = true;
                     }
                     else
                     {

@@ -32,6 +32,7 @@
             btnRegistrarSocio = new Button();
             btnCobrar = new Button();
             btnListarVencimientos = new Button();
+            btnEmitirCarnet = new Button();
             SuspendLayout();
             // 
             // btnRegistrarNoSocio
@@ -48,7 +49,7 @@
             // btnRegistrarSocio
             // 
             btnRegistrarSocio.ImeMode = ImeMode.NoControl;
-            btnRegistrarSocio.Location = new Point(508, 306);
+            btnRegistrarSocio.Location = new Point(509, 68);
             btnRegistrarSocio.Name = "btnRegistrarSocio";
             btnRegistrarSocio.Size = new Size(120, 48);
             btnRegistrarSocio.TabIndex = 8;
@@ -70,7 +71,7 @@
             // btnListarVencimientos
             // 
             btnListarVencimientos.ImeMode = ImeMode.NoControl;
-            btnListarVencimientos.Location = new Point(508, 68);
+            btnListarVencimientos.Location = new Point(317, 306);
             btnListarVencimientos.Name = "btnListarVencimientos";
             btnListarVencimientos.Size = new Size(120, 48);
             btnListarVencimientos.TabIndex = 10;
@@ -78,11 +79,23 @@
             btnListarVencimientos.UseVisualStyleBackColor = true;
             btnListarVencimientos.Click += btnListarVencimientos_Click;
             // 
+            // btnEmitirCarnet
+            // 
+            btnEmitirCarnet.ImeMode = ImeMode.NoControl;
+            btnEmitirCarnet.Location = new Point(509, 306);
+            btnEmitirCarnet.Name = "btnEmitirCarnet";
+            btnEmitirCarnet.Size = new Size(120, 48);
+            btnEmitirCarnet.TabIndex = 11;
+            btnEmitirCarnet.Text = "Emitir Carnet";
+            btnEmitirCarnet.UseVisualStyleBackColor = true;
+            btnEmitirCarnet.Click += btnEmitirCarnet_Click;
+            // 
             // frmClub
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnEmitirCarnet);
             Controls.Add(btnListarVencimientos);
             Controls.Add(btnCobrar);
             Controls.Add(btnRegistrarSocio);
@@ -99,5 +112,6 @@
         private Button btnRegistrarSocio;
         private Button btnCobrar;
         private Button btnListarVencimientos;
+        private Button btnEmitirCarnet;
     }
 }

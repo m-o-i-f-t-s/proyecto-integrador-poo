@@ -45,6 +45,7 @@
             chkTarjeta = new RadioButton();
             chkEfectivo = new RadioButton();
             lblMedio = new Label();
+            lblTituloCobro = new Label();
             SuspendLayout();
             // 
             // lblVencimiento
@@ -246,11 +247,22 @@
             lblMedio.TextAlign = ContentAlignment.TopCenter;
             lblMedio.Visible = false;
             // 
+            // lblTituloCobro
+            // 
+            lblTituloCobro.AutoSize = true;
+            lblTituloCobro.Location = new Point(580, 38);
+            lblTituloCobro.Name = "lblTituloCobro";
+            lblTituloCobro.Size = new Size(47, 15);
+            lblTituloCobro.TabIndex = 47;
+            lblTituloCobro.Text = "TITULO";
+            lblTituloCobro.Visible = false;
+            // 
             // frmCobro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblTituloCobro);
             Controls.Add(lblMedio);
             Controls.Add(chkEfectivo);
             Controls.Add(chkTarjeta);
@@ -294,5 +306,6 @@
         private RadioButton chkEfectivo;
         private Label label2;
         private Label lblMedio;
+        private Label lblTituloCobro;
     }
 }
