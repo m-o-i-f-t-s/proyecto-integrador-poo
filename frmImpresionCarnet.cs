@@ -5,9 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using logIn.Datos;
+using MySql.Data.MySqlClient;
 
 namespace WinFormsApp1
 {
@@ -44,6 +47,32 @@ namespace WinFormsApp1
             PrintDocument pd = new PrintDocument();
             pd.PrintPage += new PrintPageEventHandler(ImprimirForm1);
             pd.Print();
+
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                sqlCon.Open();
+                String query = "update socio set carnet = 1 where dni = (@dni)";
+                MySqlCommand cmd = new MySqlCommand(query, sqlCon);
+                cmd.Parameters.AddWithValue("@dni", lblDni.Text);
+
+                MySqlDataReader read = cmd.ExecuteReader();
+                //while (read.Read())
+                //{
+                //    string respuesta = read[0].ToString();
+                    
+                //}
+               
+
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show($"Error al conectar o ejecutar la consulta: {ex.Message}");
+                
+            }
+
 
             btnImprimir.Visible = true;
         }
