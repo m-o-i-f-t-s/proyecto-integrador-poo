@@ -176,7 +176,7 @@
             Controls.Add(label1);
             Controls.Add(txtNombre);
             Name = "FormRegistroNoSocio";
-            Text = "frmRegistroNoSocio";
+            Text = "Registro No Socio";
             ResumeLayout(false);
             PerformLayout();
         }

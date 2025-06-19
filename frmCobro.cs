@@ -34,9 +34,7 @@ namespace WinFormsApp1
 
             // NO SOCIO
             if (!dateFechaPago.Visible &&
-                txtDni.Text != "" &&
-                txtMonto.Text != "" &&
-                (chkEfectivo.Checked || chkTarjeta.Checked))
+                txtMonto.Text != "")
             {
                 // Imprimir No Socio
                 btnBuscar.Visible = false;
@@ -47,6 +45,7 @@ namespace WinFormsApp1
 
                 btnBuscar.Visible = true;
                 btnCobrar.Visible = true;
+                MessageBox.Show("Actividad Cobrada");
 
             }
             // Socio 
@@ -142,6 +141,24 @@ namespace WinFormsApp1
         {
             Boolean busqueda = false;
             string nombre, apellido;
+
+            // reset
+            lblTotal.Visible = false;
+            txtMonto.Visible = false;
+            lblMedio.Visible = false;
+            chkTarjeta.Visible = false;
+            chkEfectivo.Visible = false;
+            btnCobrar.Visible = false;
+            txtApellido.Visible = false;
+            txtNombre.Visible = false;
+            lblApellido.Visible = false;
+            lblNombre.Visible = false;
+            lblCuotas.Visible = false;
+            cboCuotas.Visible = false;
+            lblVencimiento.Visible = false;
+            dateFechaPago.Visible = false;
+            lblTituloCobro.Visible = false;
+
             //  VALIDACIONES
             if (txtDni.Text != "")
             {

@@ -48,12 +48,13 @@ namespace WinFormsApp1.Entidades
                 {
                     string respuesta = read[0].ToString();
                     MessageBox.Show(respuesta);
-                    if(respuesta == "Socio registrado con exito")
+                    Boolean busqueda = false;
+                    busqueda = BuscarSocio(dni);
+                    if(busqueda && carnet == 1)
                     {
-                        if (carnet == 1 && aptoFisico == 1)
-                        {
-                            ImprimirCarnet(nombre, apellido, dni);
-                        }
+                        
+                        ImprimirCarnet(nombre, apellido, dni);
+                        
                     }
                 }
 
