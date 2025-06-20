@@ -139,6 +139,7 @@ namespace WinFormsApp1
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            //Declaración
             Boolean busqueda = false;
             string nombre, apellido;
 

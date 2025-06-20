@@ -43,6 +43,7 @@
             dbgrdNoEmitidos.RowTemplate.Height = 25;
             dbgrdNoEmitidos.Size = new Size(696, 210);
             dbgrdNoEmitidos.TabIndex = 2;
+            dbgrdNoEmitidos.CellContentClick += dbgrdNoEmitidos_CellContentClick;
             // 
             // txtDni
             // 

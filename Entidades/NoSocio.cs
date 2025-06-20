@@ -20,6 +20,7 @@ namespace WinFormsApp1.Entidades
         private string Dni{ get; set; }
         private string Email { get; set; }
         private bool AptoFisico { get; set; }
+
         
         public void RegistroNoSocio(
             string nombre, 
