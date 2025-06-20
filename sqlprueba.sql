@@ -48,9 +48,10 @@ begin
         insert into noSocio(nombre, apellido, dni, telefono, email, aptoFisico)
 		values 
         (nombreRegistro, apellidoRegistro, dniRegistro, telefonoRegistro, emailRegistro, aptoFisicoRegistro);
-        select("Cliente registrado con exito");
+        select("Cliente registrado con éxito");
 	end if;
 end//
+
 # call RegistroNoSocio ("Guille", "Novi", "123456", "1234", "gui", 1); #ERROR - YA REGISTRADO
 
 delimiter //
@@ -132,7 +133,7 @@ begin
 			insert into socio(nombre, apellido, dni, telefono, email, aptoFisico,fechaDeVencimiento,carnet)
 			values 
 			(nombreRegistro, apellidoRegistro, dniRegistro, telefonoRegistro, emailRegistro, aptoFisicoRegistro, fechaDeVencimientoRegistro, carnetRegistro);
-			select("Socio registrado con exito");
+			select("Socio registrado con éxito");
 		end if;
 	end if;
 end//
@@ -148,6 +149,20 @@ declare busquedaSocio int;
 		select(True);
 	else
 		select(False);
+	end if;
+end//
+
+
+delimiter //
+create procedure EliminarSocio(in dniRegistro varchar(29))
+begin
+declare busquedaSocio int;
+    set busquedaSocio  = (select dni from Socio where dni = dniRegistro);
+    if busquedaSocio  is null then
+		select(False);
+	else
+		delete from Socio where dni = dniRegistro;
+        select(True);
 	end if;
 end//
 
