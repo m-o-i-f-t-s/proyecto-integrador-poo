@@ -1,4 +1,8 @@
+using logIn.Datos;
+using MySql.Data.MySqlClient;
+using System.Net;
 using WinFormsApp1.Datos;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace WinFormsApp1
 {
@@ -21,13 +25,21 @@ namespace WinFormsApp1
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //if (txtUser.Text == "")
-            //{
-            //    MessageBox.Show("Debe Igresar un nombre de usuario");
-            //    return;
-            //}
-            //Login login = new Login();
-            //login.login("admin", "1234");
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                sqlCon.Open();
+                //String query = "";
+                //MySqlCommand cmd = new MySqlCommand(query, sqlCon);
+
+                //MySqlDataReader read = cmd.ExecuteReader();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error al conectar o ejecutar la consulta: {ex.Message}");
+            }
 
             frmClub frmClub = new frmClub();
             frmClub.Show();

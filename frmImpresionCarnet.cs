@@ -58,11 +58,7 @@ namespace WinFormsApp1
                 cmd.Parameters.AddWithValue("@dni", lblDni.Text);
 
                 MySqlDataReader read = cmd.ExecuteReader();
-                //while (read.Read())
-                //{
-                //    string respuesta = read[0].ToString();
-                    
-                //}
+                
                
 
             }

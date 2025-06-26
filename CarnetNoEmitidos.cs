@@ -47,17 +47,17 @@ namespace WinFormsApp1
         {
             string nombre, apellido;
             Boolean busqueda = false;
-            if(txtDni.Text != "")
+            if (txtDni.Text != "")
             {
                 Socio socio = new Socio();
                 busqueda = socio.NombreApellidoSocio(txtDni.Text, out nombre, out apellido);
-                if(busqueda)
+                if (busqueda)
                 {
                     socio.ImprimirCarnet(nombre, apellido, txtDni.Text);
                 }
                 else
                 {
-                        MessageBox.Show("No se encuentra Socio con el DNI ingresado");
+                    MessageBox.Show("No se encuentra Socio con el DNI ingresado");
 
                 }
             }
@@ -65,6 +65,11 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Debe ingresar un DNI");
             }
+        }
+
+        private void dbgrdNoEmitidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
