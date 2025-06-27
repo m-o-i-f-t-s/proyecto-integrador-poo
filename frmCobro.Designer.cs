@@ -282,6 +282,7 @@
             Controls.Add(txtDni);
             Name = "frmCobro";
             Text = "Cobro";
+            Load += frmCobro_Load;
             ResumeLayout(false);
             PerformLayout();
         }

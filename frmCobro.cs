@@ -33,29 +33,30 @@ namespace WinFormsApp1
             //  VALIDACIONES
 
             // NO SOCIO
-            if (!dateFechaPago.Visible &&
+            if (!dateFechaPago.Visible && // nuevo vencimiento
                 txtMonto.Text != "")
             {
-                // Imprimir No Socio
+                // Imprimir comprobante pago No Socio
                 btnBuscar.Visible = false;
                 btnCobrar.Visible = false;
+
                 PrintDocument pd = new PrintDocument();
                 pd.PrintPage += new PrintPageEventHandler(ImprimirForm1);
                 pd.Print();
 
                 btnBuscar.Visible = true;
                 btnCobrar.Visible = true;
+
                 MessageBox.Show("Actividad Cobrada");
 
             }
             // Socio 
-            else if (dateFechaPago.Visible &&
-                txtDni.Text != "" &&
+            else if (dateFechaPago.Visible && // nuevo vencimiento
                 txtMonto.Text != "" &&
                 (chkEfectivo.Checked || chkTarjeta.Checked)
                 )
             {
-                if(chkTarjeta.Checked && cboCuotas.SelectedIndex == -1)
+                if (chkTarjeta.Checked && cboCuotas.SelectedIndex == -1)
                 {
                     MessageBox.Show("Debe Completar todos los campos");
                     return;
@@ -171,9 +172,6 @@ namespace WinFormsApp1
                     // ES NO SOCIO
                     lblTotal.Visible = true;
                     txtMonto.Visible = true;
-                    //lblMedio.Visible = true;
-                    //chkTarjeta.Visible = true;
-                    //chkEfectivo.Visible = true;
                     btnCobrar.Visible = true;
                     txtApellido.Visible = true;
                     txtNombre.Visible = true;
@@ -270,6 +268,11 @@ namespace WinFormsApp1
         }
 
         private void cboCuotas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmCobro_Load(object sender, EventArgs e)
         {
 
         }
